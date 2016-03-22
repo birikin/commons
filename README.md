@@ -1,9 +1,9 @@
-# lib_reducer -> Hadoop之MapReduce程序之Reducer框架(PHP,Python)  
+* lib_reducer -> Hadoop之MapReduce程序之Reducer框架(PHP,Python)  
 
-### 主要特性：模仿Java的Reducer基类，提供迭代器版本的values，可使用for遍历某key对应的values各值。  ###
+主要特性：模仿Java的Reducer基类，提供迭代器版本的values，可使用for遍历某key对应的values各值。  ###
 
 **示例1：**
-
+```PHP
     <?php
 	require_once("libreducer.php");
 
@@ -16,8 +16,9 @@
 	}
 
 	run(new MyReducer());
+```
 输入（cat test_input | php example.php）：  
-
+>
     a
 	a	2	8
 	b	3
@@ -33,7 +34,7 @@
 	key: c  value:
 	key: c  value: 5
 **示例2：**
-
+```PHP
     <?php
 	require_once("libreducer.php");
 
@@ -44,15 +45,16 @@
 	}
 
 	run(new MyReducer());
+```
 输入同上，输出：
 
 	key: a
 	key: b
 	key: c
 **示例3：**  
-通过重载BaseReducer类的parse函数可以自定义解析key,value的方法，参数为一行文本字符串，返回array($key, $value)。  
+通过重写BaseReducer类的parse函数可以自定义解析key,value的方法，参数为一行文本字符串，返回array($key, $value)。  
 默认实现是以"\t"作为分隔符，第一列为key，其余为value
-
+```PHP
     <?php
 	require_once("libreducer.php");
 
@@ -69,6 +71,7 @@
 	}
 
 	run(new MyReducer());
+```
 输入同上，输出：
 
 	key: ak value: v
