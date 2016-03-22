@@ -22,17 +22,18 @@
     a
 	a	2	8
 	b	3
-
+>
 	c
 	c	5
 
 输出：
-
+>
     key: a  value:
 	key: a  value: 2        8
 	key: b  value: 3
 	key: c  value:
 	key: c  value: 5
+	
 **示例2：**
 ```PHP
     <?php
@@ -47,10 +48,11 @@
 	run(new MyReducer());
 ```
 输入同上，输出：
-
+>
 	key: a
 	key: b
 	key: c
+	
 **示例3：**  
 通过重写BaseReducer类的parse函数可以自定义解析key,value的方法，参数为一行文本字符串，返回array($key, $value)。  
 默认实现是以"\t"作为分隔符，第一列为key，其余为value
@@ -73,7 +75,7 @@
 	run(new MyReducer());
 ```
 输入同上，输出：
-
+>
 	key: ak value: v
 	key: ak value: 2        8v
 	key: bk value: 3v
